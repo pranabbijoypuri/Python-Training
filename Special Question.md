@@ -37,4 +37,7 @@ def heavy_task(x):
 if __name__ == '__main__':
     with Pool(4) as p:  # Uses 4 CPU cores at once
         results = p.map(heavy_task, [1, 2, 3, 4])
-    print(results)```
+    print(results)
+```
+
+## 🤔 *args vs **kargs
