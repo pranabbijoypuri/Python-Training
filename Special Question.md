@@ -41,3 +41,16 @@ if __name__ == '__main__':
 ```
 
 ## 🤔 *args vs **kargs
+
+- WIP
+
+## 🤔 numpy array vs python list
+
+| Feature | Python List | NumPy Array |
+| :--- | :--- | :--- |
+| **Data Types** | Can be mixed (e.g., `[1, "apple", True]`) | Must be the same (homogeneous, e.g., all `int64`) |
+| **Memory Layout** | Array of pointers to objects (high overhead) | Continuous block of raw data (highly compact) |
+| **Performance** | Slower (requires interpreted Python loops) | Blazing fast (uses C-based vectorized operations) |
+| **Mathematical Ops** | Limited (e.g., `list * 2` duplicates the list) | Advanced (e.g., `array * 2` multiplies every element) |
+| **Flexibility** | High (easy to `append` or `pop` elements) | Low (fixed size; resizing requires a full copy) |
+| **Dimensions** | Nested lists (e.g., `[[1], [2]]`) | Built-in N-dimensional support (tensors) |
