@@ -1,9 +1,12 @@
 import logging
 import threading
 from django.db import close_old_connections
+import os
+from dotenv import load_dotenv
 
 from .models import Ticket
 
+load_dotenv()
 logger = logging.getLogger("tickets")
 
 analysis_lock = threading.Lock()
@@ -38,7 +41,7 @@ def suggest_priority(text: str) -> str:
     if any(word in text for word in ["slow", "intermittent", "issue", "error"]):
         return "Medium"
 
-    return "Low"
+    return os.getenv(key="PRIORITY")
 
 
 def generate_summary(title: str, description: str) -> str:
