@@ -33,19 +33,26 @@ poetry add Django
 
 ---
 
-# 👩‍🏫 Project Setup Guide for consumer of this repo
+## 👩‍🏫 Project Setup Guide for consumer of this repo
 
 This project uses **Poetry** for dependency management. Follow these steps to set up your local environment.
 
-## 🚀 Installation
+### 🚀 Installation
 
 1. **Clone the repository** and navigate to the project folder.
 
 2. **Configure Poetry** to create a local virtual environment:
 
-   ```powershell
-   # Configure Poetry to create a local virtual environment
-   poetry config virtualenvs.in-project true
-   # Install dependencies (This creates the .venv folder automatically):
-   poetry install
-   ```
+```powershell
+# Create the virtual environment folder
+python -m venv .venv
+
+# Activate the environment (Windows)
+.\.venv\Scripts\activate
+
+# Run the following command to run to set poetry
+pip install poetry
+
+# Run the following command to install all package from 
+poetry install
+```
