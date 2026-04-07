@@ -56,3 +56,9 @@ pip install poetry
 # Run the following command to install all package from 
 poetry install
 ```
+
+---
+
+## Others Links
+
+- [ChatGPT share link](https://chatgpt.com/share/69d5619b-ac44-83a7-a6c0-5f1214624496)

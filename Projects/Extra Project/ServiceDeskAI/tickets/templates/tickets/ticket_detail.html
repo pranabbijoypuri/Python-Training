@@ -1,0 +1,20 @@
+{% extends "tickets/base.html" %}
+
+{% block content %}
+<h2>Ticket Details</h2>
+
+<div class="card">
+    <p><span class="label">ID:</span> {{ ticket.id }}</p>
+    <p><span class="label">Title:</span> {{ ticket.title }}</p>
+    <p><span class="label">Description:</span> {{ ticket.description }}</p>
+    <p><span class="label">Category:</span> {{ ticket.category }}</p>
+    <p><span class="label">Priority:</span> {{ ticket.priority }}</p>
+    <p><span class="label">Status:</span> {{ ticket.status }}</p>
+    <p><span class="label">Analysis Status:</span> {{ ticket.analysis_status }}</p>
+    <p><span class="label">AI Summary:</span> {{ ticket.ai_summary|default:"Not generated yet" }}</p>
+    <p><span class="label">AI Resolution:</span> {{ ticket.ai_resolution|default:"Not generated yet" }}</p>
+    <p><span class="label">Created At:</span> {{ ticket.created_at }}</p>
+</div>
+
+<a href="{% url 'ticket_list' %}" class="btn">Back to Tickets</a>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends "tickets/base.html" %}
+
+{% block content %}
+<h2>Ticket Analytics</h2>
+
+<div class="card">
+    <p><span class="label">Total Tickets:</span> {{ total_tickets }}</p>
+</div>
+
+<div class="card">
+    <h3>Category Counts</h3>
+    <ul>
+        {% for key, value in category_counts.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% empty %}
+            <li>No data available</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Priority Counts</h3>
+    <ul>
+        {% for key, value in priority_counts.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% empty %}
+            <li>No data available</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Status Counts</h3>
+    <ul>
+        {% for key, value in status_counts.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% empty %}
+            <li>No data available</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Analysis Status Counts</h3>
+    <ul>
+        {% for key, value in analysis_status_counts.items %}
+            <li>{{ key }}: {{ value }}</li>
+        {% empty %}
+            <li>No data available</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Recent Tickets</h3>
+    <ul>
+        {% for ticket in recent_tickets %}
+            <li>
+                <a href="{% url 'ticket_detail' ticket.id %}">
+                    #{{ ticket.id }} - {{ ticket.title }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No recent tickets</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
