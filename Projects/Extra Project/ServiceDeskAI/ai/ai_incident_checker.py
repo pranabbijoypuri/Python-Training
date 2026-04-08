@@ -48,7 +48,7 @@ SYSTEM_MESSAGE = """You are an IT service desk assistant."""
 USER_PROMPT = """
     ### Analyze the following ticket and return:
 
-    1. Category (🛜 Network, 🫧 Software, 💽 Hardware, 👤 Access, 📧 Email, 🔑 Security, Other)
+    1. Category (🛜 Network, 🫧 Software, 💽 Hardware, 👤 Access, 📧 Email, 🔑 Security, 📝 Other)
     2. Priority (🟢 Low, 🔵 Medium, 🟠 High, 🔴 Critical)
     3. Short Summary
     4. Suggested Resolution
