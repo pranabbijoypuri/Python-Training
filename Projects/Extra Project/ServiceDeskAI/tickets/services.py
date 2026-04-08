@@ -5,6 +5,7 @@ import os
 from dotenv import load_dotenv
 
 from .models import Ticket
+import ai.ai_incident_checker as checker
 
 load_dotenv()
 logger = logging.getLogger("tickets")
@@ -73,20 +74,22 @@ def analyze_ticket(ticket_id: int) -> None:
         with analysis_lock:
             ticket = Ticket.objects.get(id=ticket_id)
             text = f"{ticket.title} {ticket.description}"
+            ai_result = checker.get_incident_analysis_result(text)    
 
-            category = classify_category(text)
-            priority = suggest_priority(text)
-            summary = generate_summary(ticket.title, ticket.description)
-            resolution = suggest_resolution(category)
+            # category = classify_category(text)
+            # priority = suggest_priority(text)
+            # summary = generate_summary(ticket.title, ticket.description)
+            # resolution = suggest_resolution(category)
 
-            ticket.category = category
-            ticket.priority = priority
-            ticket.ai_summary = summary
-            ticket.ai_resolution = resolution
+            ticket.category = ai_result['category']
+            ticket.priority = ai_result['priority']
+            ticket.ai_summary = ai_result['summary']
+            ticket.ai_resolution = ai_result['resolution']
             ticket.analysis_status = "Completed"
             ticket.save()
 
             logger.info("Ticket %s analyzed successfully.", ticket_id)
+            logger.info(ai_result)
 
     except Ticket.DoesNotExist:
         logger.error("Ticket %s does not exist.", ticket_id)

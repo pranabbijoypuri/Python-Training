@@ -1,4 +1,4 @@
-# Project Setup
+# ⚙️ Project Setup
 
 This project uses **Poetry** for dependency management within a local virtual environment.
 
@@ -8,7 +8,7 @@ This project uses **Poetry** for dependency management within a local virtual en
 
 Follow these steps to set up the environment and install the necessary dependencies.
 
-### 1. Create and Activate Virtual Environment
+### 🫧 Create and Activate Virtual Environment
 
 Run the following commands to isolate your project dependencies:
 
@@ -59,6 +59,19 @@ poetry install
 
 ---
 
-## Others Links
+## 🔗 Others Links
 
 - [ChatGPT share link](https://chatgpt.com/share/69d5619b-ac44-83a7-a6c0-5f1214624496)
+
+---
+
+### #️⃣ Command to Start the Django app
+
+```powershell
+    python manage.py runserver
+```
+
+### Environment File
+
+- OPENAI_API_KEY=
+- MODEL=
